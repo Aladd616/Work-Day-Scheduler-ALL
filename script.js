@@ -1,7 +1,6 @@
 var container = $(".container");
+var saveBtn = $('.saveBtn');
 
-var getHours = [];
-var plans = [];
 
 var weekDay = moment().format('dddd, MMMM Do');
 $("#currentDay").text(weekDay);
@@ -29,4 +28,13 @@ for (i = 0; i < descriptions.length; i++) {
     descriptions[i].classList.add(lineClasses[i])
 }
 
-// and array for each hour id and an array for the description element and reference the description
+
+
+saveBtn.on('click', function() {
+    var text = $(this).siblings('.description').val();
+    var hourly = $(this).parent().attr('id');
+    localStorage.setItem(hourly, text);
+   
+})
+
+
