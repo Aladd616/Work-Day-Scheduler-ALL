@@ -1,5 +1,7 @@
 var container = $(".container");
 
+var getHours = [];
+var plans = [];
 
 var weekDay = moment().format('dddd, MMMM Do');
 $("#currentDay").text(weekDay);
@@ -7,15 +9,8 @@ $("#currentDay").text(weekDay);
 var hour = Number(moment().format('H'));
 console.log("hour", hour);
 
-function rowPlanner() {
 
-}
-
-function dayColor() {
-
-}
-
-const hours = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17];
+const hours = [9, 10, 11, 12, 13, 14, 15, 16, 17];
 function getLineClass(h) {
     if (h < hour) {
         return 'past';
@@ -29,7 +24,9 @@ const lineClasses = hours.map(hr => getLineClass(hr));
 
 console.log(lineClasses)
 
-const descriptions = document.getElementsByClassName('description');
+const descriptions = $('.description');
 for (i = 0; i < descriptions.length; i++) {
     descriptions[i].classList.add(lineClasses[i])
 }
+
+// and array for each hour id and an array for the description element and reference the description
